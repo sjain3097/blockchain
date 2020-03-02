@@ -52,7 +52,8 @@ class Blockchain:
             prev_proof = prev_block['proof']
             proof = block['proof']
             
-            hash_operation = hashlib.sha256(str(proof**2-prev_proof**2).encode()).hexdigest()
+            hash_operation = self.hash(block)
+            print(hash_operation)
             if hash_operation[:4] != '0000':
                 return False
             prev_block = block
